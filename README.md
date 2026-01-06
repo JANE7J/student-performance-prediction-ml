@@ -1,30 +1,33 @@
+```markdown
 # 🎓 Student Performance Prediction System  
-### End-to-End Machine Learning Pipeline with Flask & Interactive UI
+**End-to-End Machine Learning Pipeline with Flask & Interactive UI**
 
 ---
 
 ## 📌 Project Overview
 
 This project is an **end-to-end Machine Learning pipeline** developed as part of an internship assignment.  
-The system predicts a student’s **final academic performance score** based on academic and behavioral factors.
+The system predicts a student’s **final academic performance score** based on academic factors such as study hours, attendance percentage, and previous exam scores.
 
-The project demonstrates the **complete ML workflow**, starting from raw data preprocessing to real-time prediction served through a **Flask REST API** and visualized using a **modern interactive web UI**.
+The project demonstrates the **complete ML lifecycle**, starting from raw data preprocessing and model training to real-time prediction served through a **Flask REST API** and a **modern interactive web UI**.
 
 ---
 
 ## 🎯 Problem Statement
 
-To predict a student’s final performance score using Machine Learning based on the following features:
+To build a machine learning system that predicts a student’s final performance score using the following inputs:
 
 - Study hours per day  
 - Attendance percentage  
 - Previous exam score  
 
-The output is displayed both as a **numeric score** and a **visual circular progress indicator**, making the prediction intuitive and user-friendly.
+The predicted result is displayed both **numerically** and **visually** using an animated circular progress indicator.
 
 ---
 
 ## 🔄 End-to-End ML Workflow
+
+```
 
 Raw CSV Data
 ↓
@@ -44,6 +47,7 @@ Flask REST API
 ↓
 Interactive Web UI
 
+```
 
 ---
 
@@ -51,23 +55,12 @@ Interactive Web UI
 
 - **Algorithm Used:** Linear Regression  
 - **Libraries:** Scikit-learn, Pandas, NumPy  
-- **Target Variable:** Final performance score  
 - **Evaluation Metrics:**
   - Mean Absolute Error (MAE)
   - Mean Squared Error (MSE)
   - R² Score  
 
-The trained model achieved a **high R² score (~0.99)**, indicating strong predictive performance on the test data.
-
----
-
-## 🌐 Application Features
-
-- User-friendly input form for student details  
-- Real-time prediction using a trained ML model  
-- Flask-based REST API for inference  
-- Animated circular progress visualization of results  
-- Personalized output display (shows predicted result with user name)  
+The trained model achieved a **high R² score (~0.99)**, indicating strong predictive performance on unseen data.
 
 ---
 
@@ -76,13 +69,10 @@ The trained model achieved a **high R² score (~0.99)**, indicating strong predi
 ### Programming Language
 - Python
 
-### Data Handling
+### Data & ML
 - Pandas
 - NumPy
-
-### Machine Learning
 - Scikit-learn
-- Linear Regression
 
 ### Backend
 - Flask (REST API)
@@ -95,31 +85,45 @@ The trained model achieved a **high R² score (~0.99)**, indicating strong predi
 ### Tools
 - Git & GitHub
 - VS Code
-- Postman (for API testing)
+- Postman (API testing)
 
 ---
 
 ## 📂 Project Structure
 
+```
+
 ml-pipeline-project/
 │
 ├── data/
-│ └── student.csv
+│   └── student.csv
 │
 ├── src/
-│ ├── preprocess.py
-│ ├── train.py
-│ ├── evaluate.py
-│ └── predict.py
+│   ├── preprocess.py
+│   ├── train.py
+│   ├── evaluate.py
+│   └── predict.py
 │
 ├── templates/
-│ └── index.html
+│   └── index.html
 │
 ├── app.py
 ├── model.pkl
 ├── requirements.txt
 └── README.md
 
+````
+
+---
+
+## 🌐 Application Features
+
+- User-friendly input form for academic details  
+- Real-time prediction using trained ML model  
+- Flask API for model inference  
+- Animated circular progress visualization  
+- Personalized output display  
+- Clean and modern dark-themed UI  
 
 ---
 
@@ -127,58 +131,72 @@ ml-pipeline-project/
 
 ### Step 1: Clone the Repository
 ```bash
-git clone https://github.com/JANE7J/student-performance-prediction-ml.git
+git clone https://github.com/<your-username>/student-performance-prediction-ml.git
 cd student-performance-prediction-ml
+````
 
-Step 2: Install Dependencies
+### Step 2: Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-Step 3: Run the Flask Application
+### Step 3: Run the Flask Application
 
+```bash
 python app.py
+```
 
-Step 4: Open in Browser
+### Step 4: Open in Browser
 
+```
 http://127.0.0.1:5000
+```
 
-🧪 Sample Input
+---
 
-    Study Hours per Day: 6
+## 🧪 Sample Input
 
-    Attendance Percentage: 80
+* Study Hours: `6`
+* Attendance: `80`
+* Previous Exam Score: `88`
 
-    Previous Exam Score: 88
+---
 
-✅ Sample Output
+## ✅ Sample Output
 
-    Predicted Final Score: 97%
+* Predicted Final Score: `97%`
+* Output displayed using a circular progress indicator
+* Personalized result shown on the UI
 
-    Visualized using an animated circular progress indicator
+---
 
-📚 Learning Outcomes
+## 📌 Learning Outcomes
 
-    Built a complete end-to-end Machine Learning pipeline
+* Built a complete end-to-end ML pipeline
+* Gained hands-on experience with model training and evaluation
+* Learned model persistence using pickle
+* Implemented REST APIs using Flask
+* Integrated ML backend with frontend UI
+* Handled real-time inference and data validation
 
-    Implemented data preprocessing, model training, and evaluation
+---
 
-    Learned model serialization and reuse using pickle
+## 📄 Note
 
-    Deployed an ML model using Flask REST API
+The file `model.pkl` is a **binary serialized machine learning model** generated during training.
+It is not meant to be opened or edited manually.
 
-    Integrated backend ML inference with a frontend UI
+---
 
-    Implemented real-time prediction and visualization
+## 👩‍💻 Author
 
-📄 Notes
-
-    model.pkl is a binary file containing the trained ML model.
-
-    It is generated during the training process and used for inference.
-
-    The file is not meant to be opened or edited manually.
-
-👩‍💻 Author
-
-Neeraja
+**Neeraja**
 Machine Learning Intern
+
+---
+
+⭐ If you found this project useful or interesting, feel free to star the repository!
+
+```
+```
