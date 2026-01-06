@@ -6,7 +6,6 @@
 <title>Student Performance Prediction</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
-
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
@@ -55,7 +54,10 @@ Predict Performance
 PREDICTED FINAL SCORE
 </p>
 
-<h2 class="text-sm text-indigo-300 mb-4" id="student-name"></h2>
+<!-- 🔥 NAME HIGHLIGHTED IN YELLOW -->
+<h2 id="student-name"
+class="text-yellow-400 font-bold text-lg mb-4 tracking-wide">
+</h2>
 
 <div class="relative w-40 h-40 mx-auto mb-4">
 <svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
@@ -80,7 +82,7 @@ stroke-linecap="round"/>
 
 <div class="absolute inset-0 flex flex-col items-center justify-center">
 <span class="text-4xl font-bold" id="percentage-text">0%</span>
-<span class="text-xs text-indigo-300">Strong Pass</span>
+<span class="text-xs text-indigo-300">Performance</span>
 </div>
 </div>
 
@@ -110,6 +112,8 @@ async function predictMarks(event) {
 
     document.getElementById("result").classList.remove("hidden");
     document.getElementById("percentage-text").innerText = data.percentage + "%";
+
+    // ⭐ Name shown clearly in yellow
     document.getElementById("student-name").innerText =
         "Predicted for: " + data.student_name;
 
