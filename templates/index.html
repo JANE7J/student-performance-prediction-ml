@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Student Performance Prediction</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+    font-family: 'Space Grotesk', sans-serif;
+}
+circle {
+    transition: stroke-dashoffset 1s ease;
+}
+</style>
+</head>
+
+<body class="bg-gradient-to-br from-indigo-950 via-slate-900 to-black min-h-screen flex items-center justify-center text-white">
+
+<div class="bg-white/5 backdrop-blur-xl rounded-3xl p-8 w-[380px] shadow-2xl">
+
+<h1 class="text-3xl font-bold text-center mb-2">
+Student Performance<br>
+<span class="text-indigo-400">Prediction System</span>
+</h1>
+
+<p class="text-center text-slate-400 mb-6">
+ML powered academic forecasting
+</p>
+
+<form class="space-y-4" onsubmit="predictMarks(event)">
+<input id="study_hours" type="number" step="0.1" placeholder="Study hours per day" required
+class="w-full p-3 rounded-xl bg-black/40 border border-slate-700"/>
+
+<input id="attendance" type="number" min="0" max="100" placeholder="Attendance %" required
+class="w-full p-3 rounded-xl bg-black/40 border border-slate-700"/>
+
+<input id="previous_score" type="number" min="0" max="100" placeholder="Previous exam score" required
+class="w-full p-3 rounded-xl bg-black/40 border border-slate-700"/>
+
+<button type="submit"
+class="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 font-bold">
+Predict Performance
+</button>
+</form>
+
+<!-- RESULT -->
+<div id="result" class="hidden mt-8 text-center">
+
+<p class="text-xs tracking-widest text-slate-400 mb-2">
+PREDICTED FINAL SCORE
+</p>
+
+<h2 class="text-sm text-indigo-300 mb-4" id="student-name"></h2>
+
+<div class="relative w-40 h-40 mx-auto mb-4">
+<svg class="w-full h-full -rotate-90" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="42"
+stroke="rgba(255,255,255,0.1)" stroke-width="8" fill="none"/>
+
+<circle id="progress-circle"
+cx="50" cy="50" r="42"
+stroke="url(#grad)" stroke-width="8"
+fill="none"
+stroke-dasharray="264"
+stroke-dashoffset="264"
+stroke-linecap="round"/>
+
+<defs>
+<linearGradient id="grad">
+<stop offset="0%" stop-color="#818cf8"/>
+<stop offset="100%" stop-color="#c084fc"/>
+</linearGradient>
+</defs>
+</svg>
+
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-bold" id="percentage-text">0%</span>
+<span class="text-xs text-indigo-300">Strong Pass</span>
+</div>
+</div>
+
+<p class="text-slate-400 text-xs">
+Generated using a trained ML model
+</p>
+
+</div>
+
+</div>
+
+<script>
+async function predictMarks(event) {
+    event.preventDefault();
+
+    const study_hours = document.getElementById("study_hours").value;
+    const attendance = document.getElementById("attendance").value;
+    const previous_score = document.getElementById("previous_score").value;
+
+    const res = await fetch("/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ study_hours, attendance, previous_score })
+    });
+
+    const data = await res.json();
+
+    document.getElementById("result").classList.remove("hidden");
+    document.getElementById("percentage-text").innerText = data.percentage + "%";
+    document.getElementById("student-name").innerText =
+        "Predicted for: " + data.student_name;
+
+    const circle = document.getElementById("progress-circle");
+    const offset = 264 - (264 * data.percentage) / 100;
+    circle.style.strokeDashoffset = offset;
+}
+</script>
+
+</body>
+</html>
