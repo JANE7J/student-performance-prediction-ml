@@ -1,4 +1,3 @@
-```markdown
 # 🎓 Student Performance Prediction System  
 **End-to-End Machine Learning Pipeline with Flask & Interactive UI**
 
@@ -27,8 +26,6 @@ The predicted result is displayed both **numerically** and **visually** using an
 
 ## 🔄 End-to-End ML Workflow
 
-```
-
 Raw CSV Data
 ↓
 Data Cleaning & Preprocessing
@@ -47,7 +44,6 @@ Flask REST API
 ↓
 Interactive Web UI
 
-```
 
 ---
 
@@ -91,28 +87,25 @@ The trained model achieved a **high R² score (~0.99)**, indicating strong predi
 
 ## 📂 Project Structure
 
-```
-
 ml-pipeline-project/
 │
 ├── data/
-│   └── student.csv
+│ └── student.csv
 │
 ├── src/
-│   ├── preprocess.py
-│   ├── train.py
-│   ├── evaluate.py
-│   └── predict.py
+│ ├── preprocess.py
+│ ├── train.py
+│ ├── evaluate.py
+│ └── predict.py
 │
 ├── templates/
-│   └── index.html
+│ └── index.html
 │
 ├── app.py
 ├── model.pkl
 ├── requirements.txt
 └── README.md
 
-````
 
 ---
 
@@ -133,70 +126,54 @@ ml-pipeline-project/
 ```bash
 git clone https://github.com/<your-username>/student-performance-prediction-ml.git
 cd student-performance-prediction-ml
-````
 
-### Step 2: Install Dependencies
+Step 2: Install Dependencies
 
-```bash
 pip install -r requirements.txt
-```
 
-### Step 3: Run the Flask Application
+Step 3: Run the Flask Application
 
-```bash
 python app.py
-```
 
-### Step 4: Open in Browser
+Step 4: Open in Browser
 
-```
 http://127.0.0.1:5000
-```
 
----
+🧪 Sample Input
 
-## 🧪 Sample Input
+    Study Hours: 6
 
-* Study Hours: `6`
-* Attendance: `80`
-* Previous Exam Score: `88`
+    Attendance: 80
 
----
+    Previous Exam Score: 88
 
-## ✅ Sample Output
+✅ Sample Output
 
-* Predicted Final Score: `97%`
-* Output displayed using a circular progress indicator
-* Personalized result shown on the UI
+    Predicted Final Score: 97%
 
----
+    Output displayed using a circular progress indicator
 
-## 📌 Learning Outcomes
+    Personalized result shown on the UI
 
-* Built a complete end-to-end ML pipeline
-* Gained hands-on experience with model training and evaluation
-* Learned model persistence using pickle
-* Implemented REST APIs using Flask
-* Integrated ML backend with frontend UI
-* Handled real-time inference and data validation
+📌 Learning Outcomes
 
----
+    Built a complete end-to-end ML pipeline
 
-## 📄 Note
+    Gained hands-on experience with model training and evaluation
 
-The file `model.pkl` is a **binary serialized machine learning model** generated during training.
+    Learned model persistence using pickle
+
+    Implemented REST APIs using Flask
+
+    Integrated ML backend with frontend UI
+
+    Handled real-time inference and data validation
+
+📄 Note
+
+The file model.pkl is a binary serialized machine learning model generated during training.
 It is not meant to be opened or edited manually.
+👩‍💻 Author
 
----
-
-## 👩‍💻 Author
-
-**Neeraja**
+Neeraja
 Machine Learning Intern
-
----
-
-⭐ If you found this project useful or interesting, feel free to star the repository!
-
-```
-```
